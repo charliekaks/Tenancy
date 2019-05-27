@@ -1,0 +1,55 @@
+{
+  "name": "adverts",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "bitly_link": {
+      "type": "string",
+      "required": true
+    },
+    "advert_data": {
+      "type": "object",
+      "required": true,
+      "default": {}
+    },
+    "status": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "organisation": {
+      "type": "belongsTo",
+      "model": "organisation",
+      "foreignKey": "orgId"
+    },
+    "org-user": {
+      "type": "belongsTo",
+      "model": "org-user",
+      "foreignKey": "creatorId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

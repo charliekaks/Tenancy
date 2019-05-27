@@ -1,0 +1,150 @@
+{
+  "name": "organisation",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "creator": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "org-users": {
+      "type": "hasMany",
+      "model": "org-user",
+      "foreignKey": "orgId"
+    },
+    "adverts": {
+      "type": "hasMany",
+      "model": "adverts",
+      "foreignKey": "orgId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "adminForOrg",
+      "permission": "ALLOW",
+      "property": "__get__orgUsers"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "adminForOrg",
+      "permission": "ALLOW",
+      "property": "__findById__orgUsers"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "adminForOrg",
+      "permission": "ALLOW",
+      "property": "__create__orgUsers"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "adminForOrg",
+      "permission": "ALLOW",
+      "property": "__updateById__orgUsers"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "adminForOrg",
+      "permission": "ALLOW",
+      "property": "__delete__orgUsers"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "adminForOrg",
+      "permission": "ALLOW",
+      "property": "__destroyById__orgUsers"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "adminForOrg",
+      "permission": "ALLOW",
+      "property": "__count__orgUsers"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "memberForOrg",
+      "permission": "ALLOW",
+      "property": "__get__items"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "memberForOrg",
+      "permission": "ALLOW",
+      "property": "__findById__items"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "memberForOrg",
+      "permission": "ALLOW",
+      "property": "__create__items"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "memberForOrg",
+      "permission": "ALLOW",
+      "property": "__updateById__items"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "adminForOrg",
+      "permission": "ALLOW",
+      "property": "__delete__items"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "adminForOrg",
+      "permission": "ALLOW",
+      "property": "__destroyById__items"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "memberForOrg",
+      "permission": "ALLOW",
+      "property": "__count__items"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "create"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    }
+  ],
+  "methods": {}
+}

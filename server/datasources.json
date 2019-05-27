@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongoDB": {
+    "host": "",
+    "port": 0,
+    "url": "mongodb://charlie:charlie123@ds159546.mlab.com:59546/user-ads",
+    "database": "user-ads",
+    "password": "charlie123",
+    "name": "mongoDB",
+    "user": "charlie",
+    "connector": "mongodb"
+  }
+}
